@@ -29,5 +29,5 @@ typedef struct gps_now{
 };
 void gps_now_print(uint8_t RX, uint8_t TX,uint32_t baudRate, TinyGPS gps,uint32_t ms);
 gps_now gps_now_get(uint8_t RX, uint8_t TX,uint32_t baudRate, TinyGPS gps,uint32_t ms);
-
+void gps_now_print(gps_now gpsData, uint32_t baudRate);
 #endif

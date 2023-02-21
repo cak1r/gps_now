@@ -31,6 +31,23 @@ void gps_now_print(uint8_t RX, uint8_t TX,uint32_t baudRate, TinyGPS gps,uint32_
   Serial.print("minute: "); Serial.println(minute);
   Serial.print("second: "); Serial.println(second);
 }
+void gps_now_print(gps_now gpsData, uint32_t baudRate){
+  Serial.begin(baudRate);
+  Serial.println("--------------------------------");
+  Serial.print("sat: "); Serial.println(gpsData.sat);
+  Serial.print("lat: "); Serial.println(gpsData.coord.latitude, 6);
+  Serial.print("lon: "); Serial.println(gpsData.coord.longitude, 6);
+  Serial.print("alt: "); Serial.println(gpsData.coord.altitude);
+  Serial.print("crs: "); Serial.println(gpsData.course);
+  Serial.print("year: "); Serial.println(gpsData.dateTime.year);
+  Serial.print("month: "); Serial.println(gpsData.dateTime.month);
+  Serial.print("day: "); Serial.println(gpsData.dateTime.day);
+  Serial.print("hour: "); Serial.println(gpsData.dateTime.hour);
+  Serial.print("minute: "); Serial.println(gpsData.dateTime.minute);
+  Serial.print("second: "); Serial.println(gpsData.dateTime.second);
+  Serial.println("********************************");
+  Serial.println("");
+}
 gps_now gps_now_get(uint8_t RX, uint8_t TX,uint32_t baudRate, TinyGPS gps,uint32_t ms){
   SoftwareSerial ss(RX,TX);
   ss.begin(baudRate);
